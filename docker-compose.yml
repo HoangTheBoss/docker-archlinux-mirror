@@ -1,16 +1,9 @@
 version: '3'
 services:
-  mirror-update:
-    build: update
-    restart: always
-    volumes:
-      - mirror-data:/mnt/mirror
-
   mirror-http:
     build: http
     restart: always
     volumes:
-      - mirror-data:/mnt/mirror
-
-volumes:
-  mirror-data:
+      - /srv/dev-disk-by-uuid-d6053178-cba1-41c6-b2ff-926dd94d457f/LinuxMirror/:/mnt/mirror/
+    ports:
+      - 8686:80
